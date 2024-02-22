@@ -1,4 +1,4 @@
-import { cx } from "@/app/(blog)/blog/components/Blogs/utils/helper";
+import { cx } from "../utils/helper";
 import Link from "next/link";
 import React from "react";
 

@@ -1,7 +1,8 @@
-import { cx } from "@/app/(blog)/blog/components/Blogs/utils/helper";
+
 import "./index.css";
 import { Inter, Manrope } from "next/font/google";
-import Header from "@/app/(blog)/blog/components/Blogs/Header";
+import { cx } from "./components/Blogs/utils/helper";
+import Header from "./components/Blogs/Header";
 
 const inter = Inter({
   subsets: ["latin"],

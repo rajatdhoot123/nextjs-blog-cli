@@ -37,9 +37,9 @@ const CONFIGS = {
     dependencies: {
       "next-mdx-remote": "^4.4.1",
       "react-lite-youtube-embed": "^2.4.0",
-      "react-syntax-highlighter": "^15.5.0",
     },
     devDependencies: {
+      "rehype-pretty-code": "^0.13.1",
       "@tailwindcss/typography": "^0.5.12",
       eslint: "^8",
       "github-slugger": "^2.0.0",

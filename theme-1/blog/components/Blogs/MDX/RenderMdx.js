@@ -2,7 +2,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 
 import React from "react";
 import shortcodes from "../shortcodes/all";
-import { mdx_options } from "@/app/(blog)/blog/components/Blogs/lib/blogs";
+import { mdx_options } from "../lib/blogs";
 
 const RenderMdx = ({ content }) => {
   return (

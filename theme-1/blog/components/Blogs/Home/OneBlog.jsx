@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Tag from "@/app/(blog)/blog/components/Blogs/Elements/Tag";
+import Tag from "../Elements/Tag";
 
 const OneBlogFromHome = ({ blog }) => {
   return (

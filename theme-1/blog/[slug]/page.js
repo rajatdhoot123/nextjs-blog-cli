@@ -1,8 +1,8 @@
-import Tag from "@/app/(blog)/blog/components/Blogs/Elements/Tag";
-import BlogDetails from "@/app/(blog)/blog/components/Blogs/MDX/BlogDetails";
-import RenderMdx from "@/app/(blog)/blog/components/Blogs/MDX/RenderMdx";
-import siteMetadata from "@/app/(blog)/blog/components/Blogs/utils/siteMetaData";
-import { getBlogs } from "@/app/(blog)/blog/components/Blogs/utils/contentParser";
+import Tag from "../components/Blogs/Elements/Tag";
+import BlogDetails from "../components/Blogs/MDX/BlogDetails";
+import RenderMdx from "../components/Blogs/MDX/RenderMdx";
+import siteMetadata from "../components/Blogs/utils/siteMetaData";
+import { getBlogs } from "../components/Blogs/utils/contentParser";
 import fs from "fs";
 import Image from "next/image";
 import { notFound } from "next/navigation";

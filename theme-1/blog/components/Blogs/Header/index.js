@@ -8,7 +8,7 @@ import {
   MoonIcon,
   SunIcon,
   TwitterIcon,
-} from "@/app/(blog)/blog/Icons";
+} from "../../../Icons";
 
 import { useState } from "react";
 

@@ -1,9 +1,9 @@
-import BlogLayoutThree from "@/app/(blog)/blog/components/Blogs/Home/BlogLayoutThree";
-import HomeCoverSection from "@/app/(blog)/blog/components/Blogs/Home/HomeCover";
-import OneBlogFromHome from "@/app/(blog)/blog/components/Blogs/Home/OneBlog";
-import TwoBlogfromHome from "@/app/(blog)/blog/components/Blogs/Home/TwoBlog";
-import { getSinglePage } from "@/app/(blog)/blog/components/Blogs/utils/contentParser";
-import { sortBlogs } from "@/app/(blog)/blog/components/Blogs/utils/helper";
+import BlogLayoutThree from "./components/Blogs/Home/BlogLayoutThree";
+import HomeCoverSection from "./components/Blogs/Home/HomeCover";
+import OneBlogFromHome from "./components/Blogs/Home/OneBlog";
+import TwoBlogfromHome from "./components/Blogs/Home/TwoBlog";
+import { getSinglePage } from "./components/Blogs/utils/contentParser";
+import { sortBlogs } from "./components/Blogs/utils/helper";
 import Link from "next/link";
 
 const Blogs = async () => {

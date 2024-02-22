@@ -1,8 +1,9 @@
-import parseMDX from "@/app/(blog)/blog/components/Blogs/lib/blogs";
+
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import { slug } from "github-slugger";
+import parseMDX from "../lib/blogs";
 
 // get all single pages, ex: blog/post.md
 export const getSinglePage = (folder) => {

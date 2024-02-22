@@ -92,7 +92,7 @@
   }
 
   .content {
-    @apply text-base prose max-w-none prose-headings:mt-[.5em] prose-headings:mb-[.9em] prose-headings:font-semibold prose-headings:text-dark prose-h1:text-h1-sm md:prose-h1:text-h1 prose-h2:text-h2-sm md:prose-h2:text-h2 prose-h3:text-h3-sm md:prose-h3:text-h3 prose-hr:border-border prose-p:text-base prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:text-dark prose-code:px-1 prose-code:text-primary prose-pre:rounded-xl prose-strong:text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:text-text prose-table:overflow-hidden prose-table:border prose-table:border-border prose-thead:border-border prose-thead:bg-theme-light prose-th:text-dark prose-tr:border-border prose-td:px-3 prose-td:py-4 prose-img:rounded-xl;
+    @apply prose-pre:bg-transparent text-base prose max-w-none prose-headings:mt-[.5em] prose-headings:mb-[.9em] prose-headings:font-semibold prose-headings:text-dark prose-h1:text-h1-sm md:prose-h1:text-h1 prose-h2:text-h2-sm md:prose-h2:text-h2 prose-h3:text-h3-sm md:prose-h3:text-h3 prose-hr:border-border prose-p:text-base prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:text-dark prose-code:px-1 prose-code:text-primary prose-pre:rounded-xl prose-strong:text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:text-text prose-table:overflow-hidden prose-table:border prose-table:border-border prose-thead:border-border prose-thead:bg-theme-light prose-th:text-dark prose-tr:border-border prose-td:px-3 prose-td:py-4 prose-img:rounded-xl;
   }
 
   blockquote > p {

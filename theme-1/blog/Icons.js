@@ -1,5 +1,5 @@
-import { cx } from "@/app/(blog)/blog/components/Blogs/utils/helper";
 import React from "react";
+import { cx } from "./components/Blogs/utils/helper";
 
 export const SunIcon = ({ className, ...rest }) => (
   <svg

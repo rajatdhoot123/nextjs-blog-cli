@@ -1,7 +1,6 @@
 import Accordion from "./Accordion";
 import Blockquote from "./Blockquote";
 import Button from "./Button";
-import Code from "./Code";
 import Notice from "./Notice";
 import Tab from "./Tab";
 import Tabs from "./Tabs";
@@ -15,7 +14,6 @@ const shortcodes = {
   Tab,
   Tabs,
   Notice,
-  Code,
   Youtube,
   Blockquote,
 };

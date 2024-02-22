@@ -9,6 +9,9 @@ import Cta from "../Cta";
 import dateFormat from "../../utils/dateFormat";
 import readingTime from "../../utils/readingTime";
 import shortcodes from "../shortcodes/all";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
 
 const PostSingle = ({ frontmatter, content, mdxContent, recentPosts }) => {
   let { description, title, date, image, author } = frontmatter;
@@ -54,7 +57,16 @@ const PostSingle = ({ frontmatter, content, mdxContent, recentPosts }) => {
                   </div>
                 </div>
                 <div className="content mb-16 mt-16 text-left">
-                  <MDXRemote source={content} components={shortcodes} />
+                  <MDXRemote
+                    options={{
+                      mdxOptions: {
+                        rehypePlugins: [rehypeSlug, [rehypePrettyCode]],
+                        remarkPlugins: [remarkGfm],
+                      },
+                    }}
+                    source={content}
+                    components={shortcodes}
+                  />
                 </div>
               </div>
               {/* {disqus.enable && (

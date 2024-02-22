@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Tag from "@/app/(blog)/blog/components/Blogs/Elements/Tag";
+import Tag from "../Elements/Tag";
 import Link from "next/link";
 
 const HomeCoverSection = ({ blog }) => {
