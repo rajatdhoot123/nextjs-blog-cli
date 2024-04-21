@@ -37,10 +37,9 @@ async function moveContents(type) {
   const destDirName = "(main)";
   const destDir = path.join(process.cwd(), "renamed_delete_this_one_job_done");
 
-  console.log({ srcDir, destDir });
   rename(srcDir, destDir, function (err) {
     if (err) throw err;
-    console.log("Successfully renamed - AKA moved!");
+    console.log("Moving your all files inside a temperory folder...");
     const new_path = path.join(srcDir, destDirName);
     if (!existsSync(new_path)) {
       mkdirSync(new_path, { recursive: true });
