@@ -122,8 +122,6 @@ inquirer
     },
   ])
   .then(async (answers) => {
-    await moveContents(type);
-    return;
     if (answers.confirmation === "yes") {
       try {
         await fsextra.copy(
@@ -152,6 +150,7 @@ inquirer
         console.error("Failed to copy directory:", err);
       }
 
+      await moveContents(type);
       try {
         const destination =
           type === "app_only"
