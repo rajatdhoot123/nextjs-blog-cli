@@ -3,7 +3,7 @@ title: Send emails from custom domain email free
 image: /blog/d.jpeg
 author:
   name: Rajat Dhoot
-  avatar: /blog/rajatdhoot.com/author/rajatdhoot.jpeg
+  avatar: /blog/author/rajatdhoot.jpeg
 draft: false
 publishedAt: "2024-04-17"
 updatedAt: "2024-04-17"

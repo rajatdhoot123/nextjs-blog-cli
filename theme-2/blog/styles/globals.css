@@ -1,0 +1,19 @@
+@config "../../../../../tailwind.blog.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import "./base.css";
+}
+
+@layer components {
+  @import "./components.css";
+  @import "./navigation.css";
+  @import "./buttons.css";
+}
+
+@layer utilities {
+  @import "./utilities.css";
+}

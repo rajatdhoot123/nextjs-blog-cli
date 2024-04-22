@@ -1,0 +1,13 @@
+{
+  "title": {
+    "default": "Next.js Boilercode for Speedy App Development - Boilercode.app"
+  },
+  "description": "Get started quickly with Next.js framework boilercode for speedy app development. Build efficient web applications with our pre-configured templates",
+  "openGraph": {
+    "title": {
+      "default": "Next.js Framework Boilercode for Speedy App Development"
+    },
+    "description": "Accelerate your web app development with our Next.js framework boilercode. Build faster and more efficiently."
+  },
+  "keywords": "Next.js, framework, boilercode, app development, web applications, speedy development"
+}

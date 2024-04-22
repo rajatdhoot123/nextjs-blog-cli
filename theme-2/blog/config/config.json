@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "Boilercode App Nextjs",
+    "base_url": "/",
+    "absoule_base_url": "https://www.rajatdhoot.com",
+    "logo": "/logo.png",
+    "logo_width": "34",
+    "logo_height": "34",
+    "logo_text": "Boilercode App"
+  },
+
+  "settings": {
+    "pagination": 6,
+    "summary_length": 200,
+    "blog_folder": "blog"
+  },
+
+  "params": {
+    "tag_manager_id": "",
+    "contact_form_action": "#",
+    "footer_content": "Lorem ipsum dolor sit sed dmi amet, consectetur adipiscing. Cdo tellus, sed condimentum volutpat.",
+    "copyright": "Designed & Developed By [kwiktwik](https:www.kwiktwik.com)"
+  },
+
+  "contact_info": {
+    "phone": "+917606060439",
+    "email": "hello@kwiktwik.com",
+    "location": "RCOEM, Katol Rd, Lonand, Gittikhadan, Nagpur, Maharashtra 440013"
+  },
+
+  "nav_button": {
+    "enable": true,
+    "label": "Download Now",
+    "link": "https://www.kwiktwik.com"
+  },
+
+  "nav_top_right_button": {
+    "enable": true,
+    "label": "Button",
+    "link": "/"
+  },
+
+  "metadata": {
+    "meta_author": "kwiktwik",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "KwikTwik-light Nextjs Blog Template"
+  },
+
+  "call_to_action": {
+    "enable": true,
+    "title": "Get KwikTwik Now",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas </br> Werat viverra id et aliquet. vulputate egestas sollicitudin.",
+    "button": {
+      "label": "Download The Theme",
+      "link": "https://www.kwiktwik.com"
+    }
+  },
+
+  "disqus": {
+    "enable": true,
+    "shortname": "kwiktwik-template",
+    "settings": {}
+  }
+}
