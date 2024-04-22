@@ -1,0 +1,165 @@
+.notice .notice-body p {
+  @apply my-0 text-[#666666];
+}
+
+.notice.note .notice-head {
+  @apply bg-[#6ab0de];
+}
+
+.notice.note .notice-body {
+  @apply bg-[rgb(227,244,255)];
+}
+
+.notice.tip .notice-head {
+  @apply bg-[#78c578];
+}
+
+.notice.tip .notice-body {
+  @apply bg-[#e2ffe2];
+}
+
+.notice.info .notice-head {
+  @apply bg-[#f0b37e];
+}
+
+.notice.info .notice-body {
+  @apply bg-[#ffedde];
+}
+
+.notice.warning .notice-head {
+  @apply bg-[#e06f6c];
+}
+
+.notice.warning .notice-body {
+  @apply bg-[#ffdad8];
+}
+
+.active-tab {
+  @apply bg-theme-light;
+}
+
+.form-input,
+.form-textarea {
+  @apply border-primary border border-transparent bg-theme-light rounded border-l-primary focus:border-primary focus:border focus:ring-transparent py-4;
+}
+
+.content {
+  @apply text-base prose max-w-none prose-headings:mt-[.5em] prose-headings:mb-[.9em] prose-headings:font-semibold prose-headings:text-dark prose-h1:text-h1-sm md:prose-h1:text-h1 prose-h2:text-h2-sm md:prose-h2:text-h2 prose-h3:text-h3-sm md:prose-h3:text-h3 prose-hr:border-border prose-p:text-base prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:text-dark prose-code:px-1 prose-code:text-primary prose-pre:rounded-xl prose-strong:text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:text-text prose-table:overflow-hidden prose-table:border prose-table:border-border prose-thead:border-border prose-thead:bg-theme-light prose-th:text-dark prose-tr:border-border prose-td:px-3 prose-td:py-4 prose-img:rounded-xl;
+}
+
+blockquote > p {
+  @apply text-xl my-4;
+}
+
+.bg-theme {
+  @apply relative bg-[50%] bg-contain h-full -z-[1] rounded-2xl;
+}
+
+.bg-theme::before {
+  @apply content-[''] absolute left-0 top-0 w-full h-full rounded-[30px] bg-contain bg-no-repeat bg-[#fff7f3] scale-[.3] transition-transform duration-[1500ms] ease-[cubic-bezier(.105,.84,.44,1)] -z-[1];
+}
+
+.bg-theme::after {
+  @apply absolute content-[''] w-full h-full bg-no-repeat bg-contain bg-[0_center] -z-[1];
+}
+
+.bg-theme.bg-animate::before {
+  transform: scale(1);
+}
+
+.pagination .swiper-pagination-bullet {
+  @apply w-[15px] h-[15px];
+}
+
+.pagination .swiper-pagination-bullet-active-main {
+  @apply bg-primary;
+}
+
+.banner .bg-theme {
+  @apply h-[calc(50%_+_160px)];
+}
+
+.banner .bg-theme::before {
+  @apply h-[95%] bg-[0_50px] scale-100 bg-theme-light;
+}
+
+.banner .bg-theme::after {
+  @apply bg-[length:50%] bg-[100%_0] left-0;
+}
+
+.banner-single .banner-wrapper {
+  @apply py-[120px];
+}
+
+.banner-single .bg-theme {
+  @apply w-full h-full;
+}
+
+.section-title {
+  @apply relative;
+}
+
+.section-title::after {
+  @apply content-[""] absolute w-[70px] h-1 -bottom-4 -translate-x-1/2 bg-primary left-1/2 rounded-[30px];
+}
+
+.section-title.bar-left::after {
+  @apply left-0 translate-x-0;
+}
+
+.feature-card-icon {
+  @apply relative overflow-hidden;
+}
+
+.feature-card-icon::before {
+  @apply absolute content-[""] bg-theme-light w-full h-0 left-0 top-0 transition-all duration-300 -z-[1];
+}
+
+.feature-card:hover .feature-card-icon::before {
+  @apply bottom-0 top-auto h-full;
+}
+
+.testimonial-slider {
+  background-image: url("data:image/svg+xml,%3Csvg width=%22462%22 height=%22458%22 viewBox=%220 0 462 458%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M36.9901 53.2939C8.66553 90.8729-.680565 197.569.0380893 247.72 3.02596 456.228 136.937 460.573 283.124 457.125 406.681 454.211 459.969 401.82 461.426 261.777 462.591 149.742 432.9 78.8779 413.134 60.3019 326.242-21.359 89.5954-16.4987 36.9901 53.2939z%22 fill=%22%23fe6019%22/%3E%3C/svg%3E");
+  @apply bg-no-repeat bg-contain h-full bg-[center_top];
+}
+
+.footer-copy-write a {
+  @apply underline;
+}
+
+.footer-copy-write a:hover {
+  @apply hover:text-primary;
+}
+
+.intro-play-btn {
+  @apply shadow-[0_0px_0px_0px_rgba(254,96,25,0.6)] hover:scale-105 transition-all duration-300;
+}
+
+.intro-play-btn::before {
+  @apply content-[''] absolute top-0 left-0 w-full h-full shadow-[0_0px_0px_0px_rgba(254,96,25,0.8)] rounded-full;
+}
+
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(254, 96, 25, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 25px rgba(254, 96, 25, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(254, 96, 25, 0);
+  }
+}
+
+@keyframes shadowPulse2 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(254, 96, 25, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(254, 96, 25, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(254, 96, 25, 0);
+  }
+}
