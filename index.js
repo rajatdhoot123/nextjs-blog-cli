@@ -147,10 +147,10 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then(async ({ theme }) => {
-  if (answers.confirmation === "yes" || answers.confirmation === "y") {
+  if ([THEME_1, THEME_2].includes(theme)) {
     try {
       console.log("adding the required dependencies in package.json...");
-      await updateDependencies(theme);
+      await updateDependencies({ theme });
     } catch (err) {}
     try {
       console.log("creating a tailwind config file for your blog...");
@@ -181,9 +181,12 @@ inquirer.prompt(questions).then(async ({ theme }) => {
           console.log("Creating a blog for you...");
           const destination =
             type === "app_only"
-              ? path.join(process.cwd(), "app", "(blog)")
-              : path.join(process.cwd(), "src", "app", "(blog)");
-          await fsextra.copy(path.join(__dirname, "blog"), destination);
+              ? path.join(process.cwd(), "app", "(blog)", "blog")
+              : path.join(process.cwd(), "src", "app", "(blog)", "blog");
+          // if (!existsSync(destination)) {
+          //   mkdirSync(destination, { recursive: true });
+          // }
+          await fsextra.copy(path.join(__dirname, theme, "blog"), destination);
           console.log("Blog created successfully");
         } catch (err) {
           console.error("Blog creating failed", err);

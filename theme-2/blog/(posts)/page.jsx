@@ -7,7 +7,7 @@ const Page = async ({ searchParams: { page } }) => {
   const currentPage = parseInt(page || 1);
   const { pagination } = config.settings;
   const posts = getSinglePage(`content/${blog_folder}`);
-  const postIndex = await getListPage(`content/${blog_folder}/_index.md`);
+  const postIndex = await getListPage(`content/_index.md`);
 
   return (
     <BlogPagination

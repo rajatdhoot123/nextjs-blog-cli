@@ -3,7 +3,7 @@ title: Creating unlimited free domain emails
 image: /blog/b.jpg
 author:
   name: Rajat Dhoot
-  avatar: /blog/rajatdhoot.com/author/rajatdhoot.jpeg
+  avatar: /blog/author/rajatdhoot.jpeg
 draft: false
 publishedAt: "2024-04-16"
 updatedAt: "2024-04-16"
