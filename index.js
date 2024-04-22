@@ -4,7 +4,6 @@ import inquirer from "inquirer";
 import { promises as fspromise, rename, mkdirSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import fsextra from "fs-extra";
-import os from "os";
 import path from "path";
 import { exec } from "child_process";
 
@@ -127,46 +126,55 @@ inquirer
   .then(async (answers) => {
     if (answers.confirmation === "yes" || answers.confirmation === "y") {
       try {
+        console.log("adding the required dependencies in package.json...");
+        await updateDependencies();
+      } catch (err) {}
+      try {
+        console.log("creating a tailwind config file for your blog...");
+        copyFile(
+          path.join(__dirname, "tailwind.blog.config.js"),
+          process.cwd() + "/tailwind.blog.config.js"
+        );
+        console.log("creating sample images inside public folder...");
         await fsextra.copy(
           path.join(__dirname, "blog_images"),
           path.join(process.cwd(), "public")
         );
-        console.log("Images copied successfully");
+        try {
+          await fsextra.copy(
+            path.join(__dirname, "content"),
+            path.join(process.cwd(), "content")
+          );
+          console.log("creating sample content for blog to start with");
+        } catch (err) {
+          console.error("sample content creation failed", err);
+        }
+        try {
+          console.log(
+            "moving your app inside (main) to isolate blog from your rest of the app"
+          );
+          await moveContents(type);
+          try {
+            console.log("Creating a blog for you...");
+            const destination =
+              type === "app_only"
+                ? path.join(process.cwd(), "app", "(blog)")
+                : path.join(process.cwd(), "src", "app", "(blog)");
+            await fsextra.copy(path.join(__dirname, "blog"), destination);
+            console.log("Blog created successfully");
+          } catch (err) {
+            console.error("Blog creating failed", err);
+          }
+        } catch (err) {
+          console.error("Failed to move contents:", err);
+        }
       } catch (err) {
-        console.error("Images Copy Failed", err);
-      }
-      copyFile(
-        path.join(__dirname, "tailwind.blog.config.js"),
-        process.cwd() + "/tailwind.blog.config.js"
-      );
-
-      try {
-        await updateDependencies();
-      } catch (err) {}
-      try {
-        await fsextra.copy(
-          path.join(__dirname, "content"),
-          path.join(process.cwd(), "content")
+        console.error(
+          "Oooh something went wrong please report to author at rajatdhoot123@gmail.com",
+          err
         );
-        console.log("Directory copied successfully");
-      } catch (err) {
-        console.error("Failed to copy directory:", err);
       }
-
-      await moveContents(type);
-      try {
-        const destination =
-          type === "app_only"
-            ? path.join(process.cwd(), "app", "(blog)")
-            : path.join(process.cwd(), "src", "app", "(blog)");
-        await fsextra.copy(path.join(__dirname, "blog"), destination);
-        console.log("Directory copied successfully");
-      } catch (err) {
-        console.error("Failed to copy directory:", err);
-      }
-    }
-    try {
-    } catch (err) {
-      console.log("Pokemon not found, try again");
+    } else {
+      console.log("Aborted");
     }
   });
