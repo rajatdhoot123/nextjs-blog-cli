@@ -1,7 +1,7 @@
 ---
 title: "Best Practices for Writing Clean and Maintainable Code"
 description: How to deploy your Next.js apps on Vercel.
-image: "../../public/blogs/roman-synkevych-vXInUOv1n84-unsplash.jpg"
+image: /blog/b.jpg
 publishedAt: "2023-01-02"
 updatedAt: "2023-01-02"
 author: "codebucks"
@@ -65,7 +65,7 @@ Something a wise person once told me about typography is:
 
 It's probably important that images look okay here by default as well:
 
-<Image
+<img
   src="/blogs/c-d-x-PDX_a_82obo-unsplash.jpg"
   width="718"
   height="404"

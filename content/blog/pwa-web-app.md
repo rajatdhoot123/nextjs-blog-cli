@@ -1,7 +1,7 @@
 ---
 title: "The Rise of Progressive Web Apps (PWAs): A Game Changer in Web Development"
 description: "Progressive Web Apps (PWAs) have transformed how users interact with web applications. Learn about the benefits of PWAs, their architecture, and how to build highly performant, offline-capable web apps using modern web technologies."
-image: "../../public/blogs/carlos-muza-hpjSkU2UYSU-unsplash.jpg"
+image: /blog/b.jpg
 publishedAt: "2022-11-12"
 updatedAt: "2022-11-12"
 author: "codebucks"
@@ -65,7 +65,7 @@ Something a wise person once told me about typography is:
 
 It's probably important that images look okay here by default as well:
 
-<Image
+<img
   src="/blogs/c-d-x-PDX_a_82obo-unsplash.jpg"
   width="718"
   height="404"

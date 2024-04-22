@@ -1,7 +1,7 @@
 ---
 title: "Mastering CSS Grid Layout: A Comprehensive Guide"
 description: "Dive into the world of CSS Grid Layout with this comprehensive guide. Learn how to create responsive and dynamic layouts using CSS Grid, and explore various examples and best practices for building modern web interfaces."
-image: "../../public/blogs/kelly-sikkema--1_RZL8BGBM-unsplash.jpg"
+image: /blog/b.jpg
 publishedAt: "2022-11-12"
 updatedAt: "2022-11-12"
 author: "codebucks"
@@ -66,7 +66,7 @@ Something a wise person once told me about typography is:
 
 It's probably important that images look okay here by default as well:
 
-<Image
+<img
   src="/blogs/c-d-x-PDX_a_82obo-unsplash.jpg"
   width="718"
   height="404"

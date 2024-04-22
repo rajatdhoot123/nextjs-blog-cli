@@ -1,7 +1,7 @@
 ---
 title: "Best Practices for Web Accessibility: Building Inclusive Websites"
 description: "Ensuring web accessibility is vital for reaching a broader audience and creating inclusive digital experiences. This blog highlights essential web accessibility best practices, guidelines, and tools to make your websites accessible to everyone."
-image: "../../public/blogs/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
+image: /blog/b.jpg
 publishedAt: "2022-11-12"
 updatedAt: "2022-11-12"
 author: "codebucks"
@@ -65,7 +65,7 @@ Something a wise person once told me about typography is:
 
 It's probably important that images look okay here by default as well:
 
-<Image
+<img
   src="/blogs/c-d-x-PDX_a_82obo-unsplash.jpg"
   width="718"
   height="404"

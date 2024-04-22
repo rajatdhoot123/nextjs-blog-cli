@@ -1,6 +1,6 @@
 {
   "name": "nextjs-blog-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cli for creating blogs in nextjs",
   "main": "index.js",
   "scripts": {

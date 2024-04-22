@@ -1,7 +1,7 @@
 ---
 title: "Automating Repetitive Tasks: Productivity Hacks for Developers"
 description: How to deploy your Next.js apps on Vercel.
-image: "../../public/blogs/emile-perron-xrVDYZRGdw4-unsplash.jpg"
+image: /blog/b.jpg
 publishedAt: "2023-01-01"
 updatedAt: "2023-01-01"
 author: "codebucks"
@@ -65,7 +65,7 @@ Something a wise person once told me about typography is:
 
 It's probably important that images look okay here by default as well:
 
-<Image
+<img
   src="/blogs/c-d-x-PDX_a_82obo-unsplash.jpg"
   width="718"
   height="404"

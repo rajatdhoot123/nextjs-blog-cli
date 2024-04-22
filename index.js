@@ -53,17 +53,21 @@ async function moveContents(type) {
 
 function installPackages() {
   console.log("Running npm install...");
-  exec("npm install", (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error occurred during npm install: ${error.message}`);
-      return;
+
+  const child = exec("npm install");
+
+  child.stdout.on("data", (data) => {
+    console.log(`${data}`);
+  });
+
+  child.stderr.on("data", (data) => {
+    console.error(`npm install stderr: ${data}`);
+  });
+
+  child.on("close", (code) => {
+    if (code !== 0) {
+      console.error(`npm install exited with code ${code}`);
     }
-    if (stderr) {
-      console.log(stdout);
-      console.log(`npm install stderr: ${stderr}`);
-      return;
-    }
-    console.log(`npm install stdout:\n${stdout}`);
   });
 }
 
@@ -121,7 +125,7 @@ inquirer
     },
   ])
   .then(async (answers) => {
-    if (answers.confirmation === "yes") {
+    if (answers.confirmation === "yes" || answers.confirmation === "y") {
       try {
         await fsextra.copy(
           path.join(__dirname, "blog_images"),
