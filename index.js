@@ -5,7 +5,7 @@ import { promises as fspromise, rename, mkdirSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import fsextra from "fs-extra";
 import path from "path";
-import { exec } from "child_process";
+import { exec, spawn } from "child_process";
 
 const THEME_1 = "theme-1";
 
@@ -76,13 +76,16 @@ async function moveContents(type) {
 function installPackages() {
   console.log("Running npm install...");
 
-  const child = exec("npm install");
+  const child = spawn("npm", ["install"], {
+    stdio: "inherit",
+    env: { ...process.env, ADBLOCK: "1", DISABLE_OPENCOLLECTIVE: "1" },
+  });
 
-  child.stdout.on("data", (data) => {
+  child.on("data", (data) => {
     console.log(`${data}`);
   });
 
-  child.stderr.on("data", (data) => {
+  child.on("data", (data) => {
     console.error(`npm install stderr: ${data}`);
   });
 
