@@ -5,7 +5,7 @@ import { promises as fspromise, rename, mkdirSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import fsextra from "fs-extra";
 import path from "path";
-import { exec, spawn } from "child_process";
+import { spawn } from "child_process";
 
 const THEME_1 = "theme-1";
 
@@ -145,7 +145,13 @@ const questions = [
     type: "list",
     name: "theme",
     message: "Select the blog theme you want to install!",
-    choices: ["theme-1", "theme-2"],
+    choices: [
+      {
+        name: "theme 1 Preview: https://www.rajatdhoot.com/theme-1",
+        value: "theme-1",
+      },
+      { name: "theme 2 Preview: https://rajatdhoot.com/blog", value: "theme-2" },
+    ],
   },
 ];
 
