@@ -12,15 +12,13 @@ Begin blogging effortlessly and without any cost!
 
 ## Explore NextJS Essentials with Launchify
 
+![Launchify](./public/launchify.png)
+
 ### **Welcome to Launchify: Supercharge Your Next.js Projects for Free!**
 
 **Launchify** is your go-to toolkit for deploying and enhancing Next.js applications with ease. Featuring a drag-and-drop interface, pre-built templates, and customizable settings, Launchify simplifies your development process, making it quicker and cost-free.
 
 **Experience our innovative features at [www.launchify.com](https://www.launchify.com)!**
-
-### **Seamless Blog Integration with Launchify**
-
-Looking to add a blog to your Next.js website? Launchify makes this vital enhancement easy and free. Our command-line tool streamlines the integration process, fitting effortlessly into any project structure.
 
 ### **Discover a Spectrum of Templates**
 
