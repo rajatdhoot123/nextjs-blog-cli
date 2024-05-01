@@ -6,9 +6,9 @@ import { fileURLToPath } from "url";
 import fsextra from "fs-extra";
 import path from "path";
 import { spawn } from "child_process";
+import chalk from "chalk";
 
 const THEME_1 = "theme-1";
-
 const THEME_2 = "theme-2";
 
 const CONFIGS = {
@@ -51,6 +51,11 @@ const CONFIGS = {
   },
 };
 
+const log = console.log;
+const success = chalk.green;
+const info = chalk.magenta;
+const error = chalk.red;
+
 async function moveContents(type) {
   const srcDir =
     type === "app_only"
@@ -61,37 +66,36 @@ async function moveContents(type) {
 
   rename(srcDir, destDir, function (err) {
     if (err) throw err;
-    console.log("Moving your all files inside a temperory folder...");
+    log(info("Moving your files to a temporary folder..."));
     const new_path = path.join(srcDir, destDirName);
     if (!existsSync(new_path)) {
       mkdirSync(new_path, { recursive: true });
     }
     rename(destDir, path.join(srcDir, destDirName), function (err) {
       if (err) throw err;
-      console.log("Successfully renamed - AKA moved!");
+      log(success("Successfully moved and renamed your files!"));
     });
   });
 }
 
 function installPackages() {
-  console.log("Running npm install...");
-
+  log(info("Running npm install..."));
   const child = spawn("npm", ["install"], {
     stdio: "inherit",
     env: { ...process.env, ADBLOCK: "1", DISABLE_OPENCOLLECTIVE: "1" },
   });
 
   child.on("data", (data) => {
-    console.log(`${data}`);
+    log(`${data}`);
   });
 
   child.on("data", (data) => {
-    console.error(`npm install stderr: ${data}`);
+    log(error(`npm install stderr: ${data}`));
   });
 
   child.on("close", (code) => {
     if (code !== 0) {
-      console.error(`npm install exited with code ${code}`);
+      log(error(`npm install exited with code ${code}`));
     }
   });
 }
@@ -106,16 +110,16 @@ type = existsSync(app_with_src) ? "with_src" : type;
 type = existsSync(app_only) ? "app_only" : type;
 
 if (type === null) {
-  console.log("No nextjs app router found");
+  log(error("No Next.js app router found"));
 }
 
 async function copyFile(source, target) {
   try {
     const data = await fspromise.readFile(source);
     await fspromise.writeFile(target, data);
-    console.log("File copied successfully");
+    log(success("File copied successfully!"));
   } catch (err) {
-    console.error("Copy failed:", err);
+    log(error("Copy failed: " + err.message));
   }
 }
 
@@ -132,10 +136,10 @@ async function updateDependencies({ theme }) {
       ...CONFIGS[theme].devDependencies,
     };
     await fsextra.writeJson(packagePath, packageJson, { spaces: 2 });
-    console.log("package.json has been updated with new dependencies.");
+    log(success("package.json has been updated with new dependencies."));
     installPackages();
   } catch (err) {
-    console.error("Error updating package.json:", err);
+    log(error("Error updating package.json: " + err.message));
     process.exit(1);
   }
 }
@@ -144,13 +148,16 @@ const questions = [
   {
     type: "list",
     name: "theme",
-    message: "Select the blog theme you want to install!",
+    message: info("Select the blog theme you want to install!"),
     choices: [
       {
         name: "theme 1 Preview: https://www.rajatdhoot.com/theme-1",
         value: "theme-1",
       },
-      { name: "theme 2 Preview: https://rajatdhoot.com/blog", value: "theme-2" },
+      {
+        name: "theme 2 Preview: https://rajatdhoot.com/blog",
+        value: "theme-2",
+      },
     ],
   },
 ];
@@ -158,16 +165,16 @@ const questions = [
 inquirer.prompt(questions).then(async ({ theme }) => {
   if ([THEME_1, THEME_2].includes(theme)) {
     try {
-      console.log("adding the required dependencies in package.json...");
+      log(info("Adding the required dependencies to package.json..."));
       await updateDependencies({ theme });
     } catch (err) {}
     try {
-      console.log("creating a tailwind config file for your blog...");
+      log(info("Creating a Tailwind CSS config file for your blog..."));
       copyFile(
         path.join(__dirname, theme, "tailwind.blog.config.js"),
         process.cwd() + "/tailwind.blog.config.js"
       );
-      console.log("creating sample images inside public folder...");
+      log(info("Creating sample images inside the public folder..."));
       await fsextra.copy(
         path.join(__dirname, theme, "images"),
         path.join(process.cwd(), "public")
@@ -177,39 +184,40 @@ inquirer.prompt(questions).then(async ({ theme }) => {
           path.join(__dirname, "content"),
           path.join(process.cwd(), "content")
         );
-        console.log("creating sample content for blog to start with");
+        log(success("Sample content for the blog has been created."));
       } catch (err) {
-        console.error("sample content creation failed", err);
+        log(error("Sample content creation failed: " + err.message));
       }
       try {
-        console.log(
-          "moving your app inside (main) to isolate blog from your rest of the app"
+        log(
+          info(
+            "Moving your app inside (main) to isolate the blog from the rest of your app..."
+          )
         );
         await moveContents(type);
         try {
-          console.log("Creating a blog for you...");
+          log(info("Creating a blog for you..."));
           const destination =
             type === "app_only"
               ? path.join(process.cwd(), "app", "(blog)", "blog")
               : path.join(process.cwd(), "src", "app", "(blog)", "blog");
-          // if (!existsSync(destination)) {
-          //   mkdirSync(destination, { recursive: true });
-          // }
           await fsextra.copy(path.join(__dirname, theme, "blog"), destination);
-          console.log("Blog created successfully");
+          log(success("Blog created successfully!"));
         } catch (err) {
-          console.error("Blog creating failed", err);
+          log(error("Blog creation failed: " + err.message));
         }
       } catch (err) {
-        console.error("Failed to move contents:", err);
+        log(error("Failed to move contents: " + err.message));
       }
     } catch (err) {
-      console.error(
-        "Oooh something went wrong please report to author at rajatdhoot123@gmail.com",
-        err
+      log(
+        error(
+          "Something went wrong, please report to the author at rajatdhoot123@gmail.com: " +
+            err.message
+        )
       );
     }
   } else {
-    console.log("Aborted");
+    log(info("Aborted"));
   }
 });
